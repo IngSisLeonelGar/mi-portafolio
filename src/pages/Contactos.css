@@ -1,0 +1,48 @@
+.contacto {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  color: #ebe3e3;
+}
+
+.contacto h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contacto label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contacto input,
+.contacto textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.contacto button {
+  background-color: #00d8ff;
+  border: none;
+  padding: 0.75rem;
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contacto button:hover {
+  background-color: #009ac8;
+}
