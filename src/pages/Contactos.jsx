@@ -1,32 +1,43 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser'
 import "./Contactos.css";
 
 export default function Contactos() {
-  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
-  const [enviado, setEnviado] = useState(false);
+  const form = useRef();
+  const [estadoEnvio, setEstadoEnvio] = useState(null); // 'enviando', 'exito', 'error'
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  function enviarEmail(e) {
     e.preventDefault();
-    // Aquí puedes agregar lógica para enviar el formulario (API, email, etc)
-    setEnviado(true);
-  };
+    setEstadoEnvio('enviando');
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setEstadoEnvio('exito');
+          form.current.reset();
+        },
+      ).catch((error) => {
+        console.error("Error al enviar el email:", error);
+        setEstadoEnvio('error');
+      });
+  }
+
 
   return (
     <section className="contacto">
       <h1>Contacto</h1>
-      {!enviado ? (
-        <form onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={enviarEmail}>
           <label>
             Nombre:
             <input
               type="text"
-              name="nombre"
-              value={form.nombre}
-              onChange={handleChange}
+              name="name"
               required
             />
           </label>
@@ -35,9 +46,7 @@ export default function Contactos() {
             Email:
             <input
               type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
+              name="user_email"
               required
             />
           </label>
@@ -45,18 +54,15 @@ export default function Contactos() {
           <label>
             Mensaje:
             <textarea
-              name="mensaje"
-              value={form.mensaje}
-              onChange={handleChange}
+              name="message"
               required
             />
           </label>
 
-          <button type="submit">Enviar</button>
+          <button type="submit"> {estadoEnvio === 'enviando' ? 'Enviando...' : 'Enviar'}</button>
         </form>
-      ) : (
-        <p>¡Gracias por tu mensaje! Me pondré en contacto pronto.</p>
-      )}
+        {estadoEnvio === 'exito' && <p style={{ color: 'green' }}>Mensaje enviado ✅</p>}
+        {estadoEnvio === 'error' && <p style={{ color: 'red' }}>Hubo un error ❌</p>}
     </section>
   );
 }
