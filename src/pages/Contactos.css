@@ -33,16 +33,35 @@
 }
 
 .contacto button {
-  background-color: #00d8ff;
-  border: none;
-  padding: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
   color: white;
-  font-weight: 700;
-  border-radius: 8px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
+  display: block;
+  margin: 1rem auto 0;
+  width: fit-content;
 }
 
 .contacto button:hover {
   background-color: #009ac8;
+}
+
+@media (max-width: 600px) {
+  .contacto {
+    padding: 1rem;
+  }
+
+  .formulario-contacto input,
+  .formulario-contacto textarea {
+    font-size: 0.9rem;
+  }
+
+  .formulario-contacto button {
+    width: 100%;
+  }
 }

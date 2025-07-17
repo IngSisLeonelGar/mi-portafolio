@@ -4,7 +4,7 @@
     display : flex;
     justify-content: space-between;
     align-items: center;
-    Background-color: #1e1e1e;
+    background-color: #1e1e1e;
     padding: 1rem 2rem;
     color: white;
     width: 100vw;
@@ -33,4 +33,32 @@
 
 .navbar-links a:hover {
     color: #00d8ff;
+}
+
+.hamburguesa {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hamburguesa {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+    display: none;
+    padding: 1rem;
+  }
+
+  .navbar-links.activo {
+    display: flex;
+  }
 }

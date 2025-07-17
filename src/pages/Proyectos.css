@@ -35,3 +35,23 @@
 .proyectos-lista a:hover {
   color: #009ac8;
 }
+
+/* 🔽 Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  .proyectos {
+    padding: 1rem;
+  }
+
+  .proyectos h1 {
+    font-size: 1.8rem;
+  }
+
+  .proyectos p {
+    font-size: 1rem;
+  }
+
+  .proyectos-lista li a {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+}
