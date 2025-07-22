@@ -8,7 +8,7 @@ export default function Proyectos() {
       <ul className="proyectos-lista">
         <li>
           <a href="https:" target="_blank" rel="noopener noreferrer">
-            Proyecto 1 - Descripción breve
+            Proyecto Agenda-Contactos
           </a>
         </li>
         <li>
