@@ -7,7 +7,8 @@ export default function Proyectos() {
       <p>Aquí puedes ver algunos de los proyectos que he desarrollado.</p>
       <ul className="proyectos-lista">
         <li>
-          <a href="https:" target="_blank" rel="noopener noreferrer">
+          <a href="https:agenda-contactos-ochre.vercel.app
+" target="_blank" rel="noopener noreferrer">
             Proyecto Agenda-Contactos
           </a>
         </li>

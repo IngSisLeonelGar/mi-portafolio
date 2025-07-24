@@ -1,3 +1,11 @@
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .navbar {
     position: relative;
     top:0;
@@ -12,7 +20,7 @@
 }
 
 .navbar-logo {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -24,15 +32,15 @@
     padding: 0;
 }
 
-.navbar-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.navbar-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.navbar-links a:hover {
-    color: #00d8ff;
+.navbar-links li a:hover {
+  color: #0077ff;
 }
 
 .hamburguesa {
@@ -55,10 +63,14 @@
     background-color: #333;
     flex-direction: column;
     display: none;
+    max-height: 0;
     padding: 1rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
   }
 
   .navbar-links.activo {
     display: flex;
+    max-height: 200px;
   }
 }

@@ -9,7 +9,6 @@ export default function Contactos() {
   function enviarEmail(e) {
     e.preventDefault();
     setEstadoEnvio('enviando');
-
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -27,8 +26,6 @@ export default function Contactos() {
         setEstadoEnvio('error');
       });
   }
-
-
   return (
     <section className="contacto">
       <h1>Contacto</h1>
@@ -41,7 +38,6 @@ export default function Contactos() {
               required
             />
           </label>
-
           <label>
             Email:
             <input
@@ -50,7 +46,6 @@ export default function Contactos() {
               required
             />
           </label>
-
           <label>
             Mensaje:
             <textarea
@@ -58,7 +53,6 @@ export default function Contactos() {
               required
             />
           </label>
-
           <button type="submit"> {estadoEnvio === 'enviando' ? 'Enviando...' : 'Enviar'}</button>
         </form>
         {estadoEnvio === 'exito' && <p style={{ color: 'green' }}>Mensaje enviado ✅</p>}

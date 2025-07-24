@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.css";
 
@@ -18,10 +17,11 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-logo">Mi Portafolio</div>
       <ul className={`navbar-links ${menuAbierto ? "activo" : ""}`}>
-        <li><Link to="/" onClick={CerrarMenu}>Inicio</Link></li>
-        <li><Link to="/proyectos" onClick={CerrarMenu}>Proyectos</Link></li>
-        <li><Link to="/pontactos" onClick={CerrarMenu}>Contacto</Link></li>
+        <li><a href="#home" onClick={CerrarMenu}>Inicio</a></li>
+        <li><a href="#proyectos" onClick={CerrarMenu}>Proyectos</a></li>
+        <li><a href="#contactos" onClick={CerrarMenu}>Contacto</a></li>
       </ul>
+
       <div className="hamburguesa" onClick={toggleMenu}>
         ☰
       </div>
